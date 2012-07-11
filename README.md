@@ -114,7 +114,7 @@ brew install ack ctags               # OSX
 
 		git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
-4. Install bundles. Launch vim and run:
+4. Install bundles. Launch vim(Ignore the errors and they will disappear after installing needed plugins) and run:
 		
 		:BundleInstall
 
