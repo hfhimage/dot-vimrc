@@ -37,20 +37,6 @@ set report=0                   " always report number of lines changed "
 set backspace=indent,eol,start " More powerful backspacing
 set laststatus=2               " Always show the statusline            "
 
-" restore last cursor position
-set viminfo='10,\"100,:20,%,n~/.viminfo'
-function! ResCur()
-  if line("'\"") <= line("$")
-    normal! g`"
-    return 1
-  endif
-endfunction
-
-augroup resCur
-  autocmd!
-  autocmd BufWinEnter * call ResCur()
-augroup END
-
 " Default Indentation
 set autoindent
 set smartindent     " indent when
