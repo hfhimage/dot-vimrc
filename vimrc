@@ -24,18 +24,35 @@ set incsearch
 set ignorecase
 set smartcase
 
-" paste codes
-set history=1000
+" editor settings
 set nocompatible
-set t_Co=256 " Explicitly tell vim that the terminal has 256 colors "
-set number   " show linenumber
-set confirm  " prompt when existing from an unsaved file
-set ruler
-set showcmd                    " Show (partial) command in status line
-set mouse=a                    " use mouse in all modes
-set report=0                   " always report number of lines changed "
-set backspace=indent,eol,start " More powerful backspacing
-set laststatus=2               " Always show the statusline            "
+set confirm                                                       " prompt when existing from an unsaved file
+set history=1000
+set backspace=indent,eol,start                                    " More powerful backspacing
+
+" display settings
+set t_Co=256                                                      " Explicitly tell vim that the terminal has 256 colors "
+set mouse=a                                                       " use mouse in all modes
+set report=0                                                      " always report number of lines changed                "
+set nowrap                                                        " dont wrap lines
+set scrolloff=2                                                   " 2 lines above/below cursor when scrolling
+set number                                                        " show line numbers
+set showmatch                                                     " show matching bracket (briefly jump)
+set showmode                                                      " show mode in status bar (insert/replace/...)
+set showcmd                                                       " show typed command in status bar
+set ruler                                                         " show cursor position in status bar
+set title                                                         " show file in titlebar
+set laststatus=2                                                  " use 2 lines for the status bar
+set matchtime=2                                                   " show matching bracket for 0.2 seconds
+set matchpairs+=<:>                                               " specially for html
+
+ " When editing a file, always jump to the last cursor position
+autocmd BufReadPost *
+      \ if ! exists("g:leave_my_cursor_position_alone") |
+      \     if line("'\"") > 0 && line ("'\"") <= line("$") |
+      \         exe "normal g'\"" |
+      \     endif |
+      \ endif
 
 " Default Indentation
 set autoindent
